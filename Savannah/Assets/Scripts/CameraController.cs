@@ -6,7 +6,7 @@ public class CameraController : MonoBehaviour
     public float mouseSensitivty = 2f;
     float cameraVerticalRotation = 0f;
 
-    bool lockedCursor = true;
+    //bool lockedCursor = true;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
