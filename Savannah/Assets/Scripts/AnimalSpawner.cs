@@ -29,10 +29,14 @@ public class AnimalSpawner : MonoBehaviour
         {
             yield return new WaitForSeconds(Random.Range(minTimeBetweenSpawns, maxTimeBetweenSpawns));
 
-            int spawnPoint = Random.Range(0, spawnPoints.Count);
-            Instantiate(animalPrefab, spawnPoints[spawnPoint].transform.position, spawnPoints[spawnPoint].transform.rotation);
-            curNumAnimals++;
+            int spawnPointIndex = Random.Range(0, spawnPoints.Count);
+            GameObject spawnPoint = spawnPoints[spawnPointIndex];
+            spawnPoints.Remove(spawnPoints[spawnPointIndex]);
 
+            Instantiate(animalPrefab, 
+                spawnPoint.transform.position, 
+                spawnPoint.transform.rotation);
+            curNumAnimals++;
         }
     }
 }
