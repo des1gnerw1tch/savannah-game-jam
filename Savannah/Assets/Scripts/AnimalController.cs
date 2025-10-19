@@ -39,7 +39,7 @@ public class AnimalController : MonoBehaviour
         {
             gameObject.transform.LookAt(player.transform.position);
             Vector3 curPos = gameObject.transform.position;
-            gameObject.transform.position = Vector3.Lerp(curPos, player.transform.position, .01f);
+            gameObject.transform.position = Vector3.Lerp(curPos, player.transform.position, .02f);
         }
 
     }
