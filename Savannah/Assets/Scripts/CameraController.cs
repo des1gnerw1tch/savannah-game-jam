@@ -6,8 +6,6 @@ public class CameraController : MonoBehaviour
     public float mouseSensitivty = 2f;
     float cameraVerticalRotation = 0f;
 
-    //bool lockedCursor = true;
-
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -26,6 +24,6 @@ public class CameraController : MonoBehaviour
         transform.localEulerAngles = Vector3.right * cameraVerticalRotation;
 
         player.Rotate(Vector3.up * inputX);
-        
+
     }
 }
