@@ -32,6 +32,52 @@ Transform:
   - {fileID: 5746571713753166067}
   m_Father: {fileID: 6643292154001289294}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2727150165003297919
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5097590895455500198}
+  - component: {fileID: 2350653753012449233}
+  m_Layer: 0
+  m_Name: Bounds
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5097590895455500198
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2727150165003297919}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 103.5}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6643292154001289294}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2350653753012449233
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2727150165003297919}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dbdf9f0ace50f4a8386887e2faf66de9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Bounds
+  width: 204.6
+  length: 204.3
 --- !u!1 &4691461530466533012
 GameObject:
   m_ObjectHideFlags: 0
@@ -62,6 +108,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 5097590895455500198}
   - {fileID: 5234564590790781610}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -77,6 +124,37 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ea49522d8c2714e4d92f29cd4d208f6e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
+  treePrefabs:
+  - {fileID: 7657842271593872898, guid: 509b76d92e62e45eb80c578efe0565ab, type: 3}
+  - {fileID: 2937478170783404537, guid: 3821e564d251d48ffbd2289b404c9f1e, type: 3}
+  - {fileID: 6754425956781466403, guid: ee3aca3dc997a483ba00d3e37363224d, type: 3}
+  minNumberOfTreesToSpawn: 0
+  maxNumberOfTreesToSpawn: 40
+  rockPrefabs:
+  - {fileID: 5813741821542871271, guid: 5524323dcd3354fe1a4ac402ffe2d443, type: 3}
+  - {fileID: 6589326399616928391, guid: da3a6fb7793994568aeb9866c6b27280, type: 3}
+  - {fileID: 4197392815488742528, guid: 1020549757b234b458fa1b475ac4ec1c, type: 3}
+  - {fileID: 3604156556363591050, guid: cf759ed9f3cd94aeaa4787d40b9254db, type: 3}
+  - {fileID: 2808526936926178006, guid: 2f7fd3f0a32364f698dc9effff14e5c6, type: 3}
+  - {fileID: 2902525149889051743, guid: 353e6ea176d4241a78c2035820e19aa7, type: 3}
+  - {fileID: 465238250268080364, guid: a5e157141f19847c380be2474f75c61d, type: 3}
+  - {fileID: 6121138862222796262, guid: 7268c3910818745a4bdbf471b2c47992, type: 3}
+  minNumberOfRocksToSpawn: 5
+  maxNumberOfRocksToSpawn: 25
+  grassPrefabs:
+  - {fileID: 4751543709644328099, guid: 95be0d771a635421e8a301a6fd4db1e0, type: 3}
+  - {fileID: 7954285793915926482, guid: e5c13529e299944e390d2558b0a9f44c, type: 3}
+  - {fileID: 1870373913091444772, guid: 9f875d94c211045bd9c28156818a702a, type: 3}
+  - {fileID: 2613921506848745687, guid: 0ab3a52b77f4843bb9ab52ecc8a6a3f5, type: 3}
+  - {fileID: 4260981710602064091, guid: 6863496d8505d44e18f4e49a9494336d, type: 3}
+  minNumberOfGrassToSpawn: 30
+  maxNumberOfGrassToSpawn: 50
+  logPrefabs:
+  - {fileID: 2900899855243320209, guid: 6e99a9bc55a30421a81b388b9a52b005, type: 3}
+  - {fileID: 4403316120717258540, guid: 4d718ee1bf7df4014b7a255b2e439fb5, type: 3}
+  minNumberOfLogsToSpawn: 0
+  maxNumberOfLogsToSpawn: 3
+  bounds: {fileID: 2350653753012449233}
 --- !u!1001 &5203159483507660568
 PrefabInstance:
   m_ObjectHideFlags: 0
