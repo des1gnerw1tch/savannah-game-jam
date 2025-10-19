@@ -53,9 +53,9 @@ public class ChunkGenerator : MonoBehaviour
             }
             
         }
-        Debug.Log("Nearest chunk");
-        Debug.Log(lowestDistance);
-        Debug.Log("ID: " + nearestChunk.gameObject.GetInstanceID());
+        //Debug.Log("Nearest chunk");
+        //Debug.Log(lowestDistance);
+        //Debug.Log("ID: " + nearestChunk.gameObject.GetInstanceID());
         return lowestDistance;
     }
 

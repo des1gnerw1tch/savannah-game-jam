@@ -260,6 +260,8 @@ GameObject:
   m_Component:
   - component: {fileID: 3281690922171370390}
   - component: {fileID: 2525495915035312181}
+  - component: {fileID: 2686344436923410642}
+  - component: {fileID: 9020177385871881277}
   m_Layer: 0
   m_Name: RunnerPlayer
   m_TagString: Untagged
@@ -304,3 +306,29 @@ MonoBehaviour:
   distanceFromChunkToDespawnChunk: 10000
   distanceToSpawnChunksAway: 200
   numChunkBatchesToSpawn: 2
+--- !u!114 &2686344436923410642
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6942359150994634969}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 648db92623a934401aaa53767b6b79f1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: '::'
+  speed: 15
+--- !u!114 &9020177385871881277
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6942359150994634969}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb130b3145a4d48bb959d2920d9b6195, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CameraControllerRunner
+  mouseSensitivty: 5
