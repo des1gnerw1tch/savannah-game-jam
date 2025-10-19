@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Drawing;
 
 
 public class ChunkGenerator : MonoBehaviour
@@ -9,6 +10,7 @@ public class ChunkGenerator : MonoBehaviour
     {
         public GameObject gameObject;
         public bool hasSpawnedOtherChunks;
+        public Point spotOnGrid;
     }
     
     [SerializeField] private List<Chunk> chunkObjects;
@@ -19,6 +21,13 @@ public class ChunkGenerator : MonoBehaviour
     private Chunk nearestChunk;
     [SerializeField] private int numChunkBatchesToSpawn;
 
+    private Dictionary<Point, bool> pointHasChunk = new Dictionary<Point, bool>();
+
+    private void Start()
+    {
+        pointHasChunk[new Point(0, 0)] = true;
+    }
+    
     private void Update()
     {
         if (GetDistanceFromNearestChunk() > distanceFromNearestChunkToGenerateNewChunk)
@@ -56,17 +65,22 @@ public class ChunkGenerator : MonoBehaviour
         {
             for (float z = -distanceToSpawnChunksAway * numChunkBatchesToSpawn; z <= distanceToSpawnChunksAway * numChunkBatchesToSpawn; z += distanceToSpawnChunksAway)
             {
-                if (x == 0 && z == 0)
+                Point gridPoint = new Point(nearestChunk.spotOnGrid.X + Convert.ToInt32(x / distanceToSpawnChunksAway), 
+                                        nearestChunk.spotOnGrid.Y + Convert.ToInt32(z / distanceToSpawnChunksAway));
+                
+                
+                if (pointHasChunk.ContainsKey(gridPoint))
                 {
                     continue;
                 }
                 Vector3 offset = new Vector3(x, 0, z);
                 GameObject chunkObj = GameObject.Instantiate(chunkPrefab, offset + nearestChunk.gameObject.transform.position, Quaternion.identity);
-                Chunk newChunk = new Chunk{gameObject = chunkObj, hasSpawnedOtherChunks = false};
+                
+                Chunk newChunk = new Chunk{gameObject = chunkObj, hasSpawnedOtherChunks = false, spotOnGrid = gridPoint};
                 chunkObjects.Add(newChunk);
                 nearestChunk.hasSpawnedOtherChunks = true;
+                pointHasChunk[gridPoint] = true;
             }
         }
-        
     }
 }
