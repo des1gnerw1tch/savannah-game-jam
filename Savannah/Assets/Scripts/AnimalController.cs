@@ -17,6 +17,7 @@ public class AnimalController : MonoBehaviour
     void Start()
     {
         player = GameObject.FindWithTag("Player");
+        gameObject.transform.LookAt(player.transform.position);
         GameObject[] middlePositions = GameObject.FindGameObjectsWithTag("MiddlePos");
         GameObject[] closePositions = GameObject.FindGameObjectsWithTag("ClosePos");
         foreach(GameObject pos in middlePositions)
@@ -60,6 +61,7 @@ public class AnimalController : MonoBehaviour
                 //gameObject.SetActive(false);
                 gameObject.transform.position = movePoint.transform.position;
                 gameObject.transform.rotation = movePoint.transform.rotation;
+                gameObject.transform.LookAt(player.transform.position);
                 //gameObject.SetActive(true);
                 distanceFromPlayer--;
             }
@@ -70,6 +72,7 @@ public class AnimalController : MonoBehaviour
                 //gameObject.SetActive(false);
                 gameObject.transform.position = movePoint.transform.position;
                 gameObject.transform.rotation = movePoint.transform.rotation;
+                gameObject.transform.LookAt(player.transform.position);
                 //gameObject.SetActive(true);
                 distanceFromPlayer--;
             }
