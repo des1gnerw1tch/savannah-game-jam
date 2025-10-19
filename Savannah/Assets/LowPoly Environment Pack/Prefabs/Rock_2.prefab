@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: -5331113847790469200}
   m_Layer: 0
   m_Name: Rock_2
-  m_TagString: MiddlePos
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -139,7 +139,7 @@ GameObject:
   - component: {fileID: 8665446066131235872}
   m_Layer: 0
   m_Name: MovePoint1
-  m_TagString: Untagged
+  m_TagString: MiddlePos
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -170,7 +170,7 @@ GameObject:
   - component: {fileID: 5317010087411645583}
   m_Layer: 0
   m_Name: MovePoint2
-  m_TagString: Untagged
+  m_TagString: MiddlePos
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

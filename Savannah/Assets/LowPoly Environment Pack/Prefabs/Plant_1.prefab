@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: -1284009335699663667}
   m_Layer: 0
   m_Name: Plant_1
-  m_TagString: ClosePos
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -116,7 +116,7 @@ GameObject:
   - component: {fileID: 2339402181306686304}
   m_Layer: 0
   m_Name: MovePoint1
-  m_TagString: Untagged
+  m_TagString: ClosePos
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -147,7 +147,7 @@ GameObject:
   - component: {fileID: 4760933478061404912}
   m_Layer: 0
   m_Name: MovePoint2
-  m_TagString: Untagged
+  m_TagString: ClosePos
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 7299755412549961176}
   m_Layer: 0
   m_Name: Bush_1
-  m_TagString: MiddlePos
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -118,7 +118,7 @@ GameObject:
   - component: {fileID: 4910099736237842263}
   m_Layer: 0
   m_Name: MovePoint1
-  m_TagString: Untagged
+  m_TagString: MiddlePos
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -149,7 +149,7 @@ GameObject:
   - component: {fileID: 5494648578489009380}
   m_Layer: 0
   m_Name: MovePoint2
-  m_TagString: Untagged
+  m_TagString: MiddlePos
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -180,7 +180,7 @@ GameObject:
   - component: {fileID: 137321442104875594}
   m_Layer: 0
   m_Name: MovePoint3
-  m_TagString: Untagged
+  m_TagString: MiddlePos
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

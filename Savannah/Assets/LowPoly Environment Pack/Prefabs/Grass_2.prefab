@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: -3626826545726753687}
   m_Layer: 0
   m_Name: Grass_2
-  m_TagString: ClosePos
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -115,7 +115,7 @@ GameObject:
   - component: {fileID: 1787419476544413448}
   m_Layer: 0
   m_Name: MovePoint1
-  m_TagString: Untagged
+  m_TagString: ClosePos
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

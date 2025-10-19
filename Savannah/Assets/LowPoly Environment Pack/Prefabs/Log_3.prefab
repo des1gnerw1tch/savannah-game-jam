@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 4334636603176146896}
   m_Layer: 0
   m_Name: Log_3
-  m_TagString: MiddlePos
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -116,7 +116,7 @@ GameObject:
   - component: {fileID: 3677392957148580059}
   m_Layer: 0
   m_Name: MovePoint1
-  m_TagString: Untagged
+  m_TagString: MiddlePos
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

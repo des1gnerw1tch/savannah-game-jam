@@ -13,6 +13,12 @@ public class AnimalSpawner : MonoBehaviour
 
     void Start()
     {
+        GameObject[] spawnPositions = GameObject.FindGameObjectsWithTag("FarPos");
+        foreach (GameObject pos in spawnPositions)
+        {
+            spawnPoints.Add(pos);
+        }
+
         curNumAnimals = 0;
 
         StartCoroutine(SpawnAnimal());
