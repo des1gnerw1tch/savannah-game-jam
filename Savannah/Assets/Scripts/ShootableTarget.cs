@@ -6,7 +6,7 @@ public class ShootableTarget : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+        gameObject.tag = "target";
     }
 
     // Update is called once per frame
