@@ -74,7 +74,7 @@ public class RayGun : MonoBehaviour
 
                 // Optionally destroy after a few seconds
                 Debug.Log("Burn mark spawned at: " + spawnPos);
-                //Destroy(burn, 10f);
+                Destroy(burn, 10f);
             }
 
             ShootableTarget target = hit.transform.GetComponent<ShootableTarget>();
@@ -88,6 +88,7 @@ public class RayGun : MonoBehaviour
     private IEnumerator Reload()
     {
         isReloading = true;
+        GetComponent<Renderer>().enabled = false;
         ammoText.text = "Reloading...";
         Debug.Log("Reloading...");
         yield return new WaitForSeconds(reloadTime);
@@ -96,6 +97,7 @@ public class RayGun : MonoBehaviour
         isReloading = false;
         Debug.Log("Reload complete!");
         UpdateAmmoText();
+        GetComponent<Renderer>().enabled = true;
     }
 
     private void UpdateAmmoText()
