@@ -14,15 +14,19 @@ public class AnimalSpawner : MonoBehaviour
 
     void Start()
     {
+        numAnimalsSpawned = 0;
+        curNumAnimals = 0;
+
+        StartCoroutine(SpawnAnimal());
+    }
+
+    public void StartLogic()
+    {
         GameObject[] spawnPositions = GameObject.FindGameObjectsWithTag("FarPos");
         foreach (GameObject pos in spawnPositions)
         {
             spawnPoints.Add(pos);
-        }
-
-        numAnimalsSpawned = 0;
-
-        StartCoroutine(SpawnAnimal());
+        } 
     }
 
     void Update()

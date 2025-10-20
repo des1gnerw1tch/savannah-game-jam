@@ -7,9 +7,11 @@ public class AnimalController : MonoBehaviour
 {
     public int minMoveTime = 10;
     public int maxMoveTime = 20;
+    public int maxMoveDistance = 20;
     public List<GameObject> targetPositionsMiddle;
     public List<GameObject> targetPositionsClose;
     public GameObject player;
+    AudioSource rustle;
     //privates, public for testing
     public int personalMoveTime;
     public int distanceFromPlayer;
@@ -21,6 +23,7 @@ public class AnimalController : MonoBehaviour
         //Time.timeScale = 1;
         player = GameObject.FindWithTag("Player");
         camera = GameObject.FindWithTag("MainCamera");
+        rustle = GetComponent<AudioSource>();
         gameObject.transform.LookAt(player.transform.position);
         GameObject[] middlePositions = GameObject.FindGameObjectsWithTag("MiddlePos");
         GameObject[] closePositions = GameObject.FindGameObjectsWithTag("ClosePos");
@@ -73,10 +76,20 @@ public class AnimalController : MonoBehaviour
             {
                 movePosIndex = Random.Range(0, targetPositionsMiddle.Count);
                 movePoint = targetPositionsMiddle[movePosIndex];
+                //Vector3 tryPoint = new Vector3(movePoint.transform.position.x, 0, movePoint.transform.position.z);
+                //Vector3 curPoint = new Vector3(gameObject.transform.position.x, 0, gameObject.transform.position.z);
+                //while(Vector3.Distance(tryPoint, curPoint) > maxMoveDistance)
+                //{
+                //    movePosIndex = Random.Range(0, targetPositionsMiddle.Count);
+                //    movePoint = targetPositionsMiddle[movePosIndex];
+                //    tryPoint = new Vector3(movePoint.transform.position.x, 0, movePoint.transform.position.z);
+                //    curPoint = new Vector3(gameObject.transform.position.x, 0, gameObject.transform.position.z);
+                //}
                 //gameObject.SetActive(false);
                 gameObject.transform.position = movePoint.transform.position;
                 gameObject.transform.rotation = movePoint.transform.rotation;
                 gameObject.transform.LookAt(player.transform.position);
+                rustle.Play();
                 //gameObject.SetActive(true);
                 distanceFromPlayer--;
             }
@@ -84,10 +97,20 @@ public class AnimalController : MonoBehaviour
             {
                 movePosIndex = Random.Range(0, targetPositionsClose.Count);
                 movePoint = targetPositionsClose[movePosIndex];
+                //Vector3 tryPoint = new Vector3(movePoint.transform.position.x, 0, movePoint.transform.position.z);
+                //Vector3 curPoint = new Vector3(gameObject.transform.position.x, 0, gameObject.transform.position.z);
+                //while (Vector3.Distance(tryPoint, curPoint) > maxMoveDistance)
+                //{
+                //    movePosIndex = Random.Range(0, targetPositionsMiddle.Count);
+                //    movePoint = targetPositionsMiddle[movePosIndex];
+                //    tryPoint = new Vector3(movePoint.transform.position.x, 0, movePoint.transform.position.z);
+                //    curPoint = new Vector3(gameObject.transform.position.x, 0, gameObject.transform.position.z);
+                //}
                 //gameObject.SetActive(false);
                 gameObject.transform.position = movePoint.transform.position;
                 gameObject.transform.rotation = movePoint.transform.rotation;
                 gameObject.transform.LookAt(player.transform.position);
+                rustle.Play();
                 //gameObject.SetActive(true);
                 distanceFromPlayer--;
             }
@@ -95,6 +118,7 @@ public class AnimalController : MonoBehaviour
             {
                 distanceFromPlayer--;
                 gameObject.transform.LookAt(player.transform.position);
+                rustle.Play();
                 x = true;
             }
         }

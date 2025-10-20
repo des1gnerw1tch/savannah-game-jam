@@ -4,6 +4,7 @@ using UnityEngine;
 public class TerrainGenerator : MonoBehaviour
 {
     public GameObject player;
+    public AnimalSpawner animalSpawner;
     public List<GameObject> closeTerrainPieces;
     public List<GameObject> midTerrainPieces;
     public List<GameObject> farTerrainPieces;
@@ -54,6 +55,8 @@ public class TerrainGenerator : MonoBehaviour
 
             Instantiate(farTerrainPieces[Random.Range(0, farTerrainPieces.Count)], spawnPosition, Quaternion.identity);
         }
+
+        animalSpawner.StartLogic();
     }
 
     void Update()
