@@ -66,9 +66,9 @@ public class RayGun : MonoBehaviour
                 Vector3 spawnPos = hit.point + hit.normal * 0.002f;
 
                 // Create burn mark and align it with the surface
-                Quaternion rotation = Quaternion.LookRotation(hit.normal);
+                Quaternion rotation = Quaternion.LookRotation(-hit.normal);
                 GameObject burn = Instantiate(burnMarkPrefab, spawnPos, rotation);
-                burn.transform.localScale = Vector3.one * 0.1f;
+                //burn.transform.localScale = Vector3.one * 0.1f;
                 // Optionally, make it a child of the hit object so it moves with it
                 burn.transform.SetParent(hit.transform);
 
@@ -76,7 +76,7 @@ public class RayGun : MonoBehaviour
                 Debug.Log("Burn mark spawned at: " + spawnPos);
                 Destroy(burn, 10f);
             }
-
+            
             ShootableTarget target = hit.transform.GetComponent<ShootableTarget>();
             if (hit.transform.CompareTag("target") && target != null)
             {
