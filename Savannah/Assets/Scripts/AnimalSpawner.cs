@@ -8,11 +8,14 @@ public class AnimalSpawner : MonoBehaviour
     public int minTimeBetweenSpawns = 15;
     public int maxTimeBetweenSpawns = 30;
     public GameObject animalPrefab;
+    public NightLevelController nightLevelController;
     public List<GameObject> spawnPoints;
-    private int curNumAnimals;
+    private int numAnimalsSpawned;
+    public static int curNumAnimals = 0;
 
     void Start()
     {
+        numAnimalsSpawned = 0;
         curNumAnimals = 0;
 
         
@@ -45,6 +48,15 @@ public class AnimalSpawner : MonoBehaviour
         StartCoroutine(SpawnAnimal());
     }
 
+    public void StartLogic()
+    {
+        GameObject[] spawnPositions = GameObject.FindGameObjectsWithTag("FarPos");
+        foreach (GameObject pos in spawnPositions)
+        {
+            spawnPoints.Add(pos);
+        } 
+    }
+
     void Update()
     {
 
@@ -52,7 +64,7 @@ public class AnimalSpawner : MonoBehaviour
 
     IEnumerator SpawnAnimal()
     {
-        while(curNumAnimals < maxAnimals)
+        while(numAnimalsSpawned < maxAnimals)
         {
             yield return new WaitForSeconds(Random.Range(minTimeBetweenSpawns, maxTimeBetweenSpawns));
 
@@ -63,7 +75,24 @@ public class AnimalSpawner : MonoBehaviour
             Instantiate(animalPrefab, 
                 spawnPoint.transform.position, 
                 spawnPoint.transform.rotation);
+            numAnimalsSpawned++;
             curNumAnimals++;
         }
+
+        while (curNumAnimals > 0) 
+        {
+            yield return new WaitForSeconds(5f);
+        }
+
+        yield return new WaitForSeconds(5f);
+        Debug.Log("Level complete, good night");
+        //level complete
+        //add fade to black, scene change
+        nightLevelController.LoadNextLevel();
+    }
+
+    public static void TigerDeath()
+    {
+        curNumAnimals--;
     }
 }
