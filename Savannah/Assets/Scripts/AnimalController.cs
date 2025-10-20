@@ -41,6 +41,7 @@ public class AnimalController : MonoBehaviour
         StartCoroutine(MoveAnimal());
     }
 
+
     void Update()
     {
         if (x)
@@ -57,8 +58,11 @@ public class AnimalController : MonoBehaviour
             {
                 //game over logic
                 Debug.Log("You Died");
-                //Time.timeScale = 0;
+                //NightLevelController.deathScreen.enabled = true;
+                Time.timeScale = 0;
+                StartCoroutine(ReloadScene());
                 //StartCoroutine(ReloadScene());
+
             }
         }
     }
@@ -124,24 +128,24 @@ public class AnimalController : MonoBehaviour
         }
     }
 
-    //IEnumerator ReloadScene()
-    //{
-    //    yield return new WaitForSeconds(3);
-    //    SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-    //}
+    IEnumerator ReloadScene()
+    {
+        yield return new WaitForSecondsRealtime(3);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
 
     //IEnumerator LookAtTiger()
     //{
-        
 
-        
-    //}
 
-    //private void OnTriggerEnter(UnityEngine.Collider other)
-    //{
-    //    if(other.gameObject.tag == "Player")
-    //    {
 
-    //    }
-    //}
-}
+        //}
+
+        //private void OnTriggerEnter(UnityEngine.Collider other)
+        //{
+        //    if(other.gameObject.tag == "Player")
+        //    {
+
+        //    }
+        //}
+    }

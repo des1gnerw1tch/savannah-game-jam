@@ -8,6 +8,7 @@ public class AnimalSpawner : MonoBehaviour
     public int minTimeBetweenSpawns = 15;
     public int maxTimeBetweenSpawns = 30;
     public GameObject animalPrefab;
+    public NightLevelController nightLevelController;
     public List<GameObject> spawnPoints;
     private int numAnimalsSpawned;
     public static int curNumAnimals = 0;
@@ -87,6 +88,7 @@ public class AnimalSpawner : MonoBehaviour
         Debug.Log("Level complete, good night");
         //level complete
         //add fade to black, scene change
+        nightLevelController.LoadNextLevel();
     }
 
     public static void TigerDeath()

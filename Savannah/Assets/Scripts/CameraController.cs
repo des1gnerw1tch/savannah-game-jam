@@ -6,6 +6,7 @@ public class CameraController : MonoBehaviour
     public Transform player;
     public float mouseSensitivty = 2f;
     float cameraVerticalRotation = 0f;
+    public NightLevelController nightLevelController;
     public static float rotationSpeed = 20.0f;
     public static bool cameraUnlocked = true;
 
@@ -15,6 +16,7 @@ public class CameraController : MonoBehaviour
     {
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
+        cameraUnlocked = true;
     }
 
     // Update is called once per frame
