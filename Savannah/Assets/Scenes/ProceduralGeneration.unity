@@ -1336,6 +1336,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: RunnerPlayer
       objectReference: {fileID: 0}
+    - target: {fileID: 6942359150994634969, guid: 7c8c115c6aaf7486eb1a9161e34c8532, type: 3}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
