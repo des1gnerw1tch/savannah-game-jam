@@ -12,7 +12,6 @@ public class PlayerControllerRunner : MonoBehaviour
     void Update()
     {
         float inputX = Input.GetAxis("Mouse X") * mouseSensitivty;
-        //Debug.Log(inputX);
         this.transform.Rotate(Vector3.up * inputX);
     }
 }
