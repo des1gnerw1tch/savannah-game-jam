@@ -300,6 +300,9 @@ MonoBehaviour:
   maxSpeed: 70
   speedIncrementWhenPressMouseButton: 2
   speedToResetAfterCollision: 10
+  distanceText: {fileID: 0}
+  distanceNeededToEscape: 3000
+  speedText: {fileID: 0}
 --- !u!114 &9020177385871881277
 MonoBehaviour:
   m_ObjectHideFlags: 0
