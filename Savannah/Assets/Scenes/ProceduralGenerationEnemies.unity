@@ -128,6 +128,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 1170403802157311810, guid: 12aa1c20586cb47b78d0eb2aa8318d81, type: 3}
+      propertyPath: level
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1170403802157311810, guid: 12aa1c20586cb47b78d0eb2aa8318d81, type: 3}
       propertyPath: spawnRadius
       value: 200
       objectReference: {fileID: 0}

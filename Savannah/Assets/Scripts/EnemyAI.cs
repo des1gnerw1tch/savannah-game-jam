@@ -20,13 +20,20 @@ public class EnemyAI : MonoBehaviour
     private Transform player;
     private float turnTimer = 0f;
 
-    void Start()
-    {
-        // Randomize stats per enemy
-        moveSpeed = Random.Range(minMoveSpeed, maxMoveSpeed);
-        rotationSpeed = Random.Range(minRotationSpeed, maxRotationSpeed);
-        turnCooldown = Random.Range(minTurnCooldown, maxTurnCooldown);
+    private int level = 1;
 
+    public void SetupEnemy(int levelNumber)
+    {
+        level = levelNumber;
+
+        // Optionally scale stats by level
+        moveSpeed = Random.Range(minMoveSpeed, maxMoveSpeed) + level * 1.5f;
+        rotationSpeed = Random.Range(minRotationSpeed, maxRotationSpeed) + level * 0.5f;
+        turnCooldown = Mathf.Max(Random.Range(minTurnCooldown, maxTurnCooldown) - level * 0.05f, 0.1f);
+    }
+
+    void Start()
+    { 
         // Find player
         GameObject playerObj = GameObject.FindGameObjectWithTag("Player");
         if (playerObj != null) player = playerObj.transform;
@@ -35,7 +42,7 @@ public class EnemyAI : MonoBehaviour
     void Update()
     {
         if (player == null) return;
-
+        
         // Move forward in current direction
         transform.position += transform.forward * moveSpeed * Time.deltaTime;
 
@@ -43,7 +50,6 @@ public class EnemyAI : MonoBehaviour
         turnTimer += Time.deltaTime;
         if (turnTimer >= turnCooldown)
         {
-            Debug.Log("Yo");
             RotateTowardPlayer();
             turnTimer = 0f;
         }
@@ -53,15 +59,5 @@ public class EnemyAI : MonoBehaviour
     {
         Vector3 direction = (player.position - transform.position).normalized;
         transform.rotation = Quaternion.LookRotation(direction); // instant snap
-    }
-
-
-    void OnTriggerEnter(Collider other)
-    {
-        if (other.CompareTag("Player"))
-        {
-            Debug.Log("Player caught! Game Over!");
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-        }
     }
 }

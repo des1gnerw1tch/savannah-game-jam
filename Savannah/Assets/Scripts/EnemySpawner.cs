@@ -8,6 +8,7 @@ public class EnemySpawner : MonoBehaviour
     public float spawnRadius = 20f;       // Maximum distance from player
     public float minSpawnDistance = 10f;  // Minimum distance from player
     public float spawnDelay = 5f;         // Delay before spawning
+    public int level;
 
     private Transform player;
 
@@ -22,6 +23,26 @@ public class EnemySpawner : MonoBehaviour
             return;
         }
 
+        switch(level)
+        {
+            case 2:
+                numberOfEnemies = 7;
+                break;
+            case 3:
+                numberOfEnemies = 10;
+                break;
+            case 4:
+                numberOfEnemies = 15;
+                break;
+            case 5:
+                numberOfEnemies = 20;
+                break;
+            default:
+                break;
+        }
+           
+
+
         StartCoroutine(SpawnEnemiesAfterDelay());
     }
 
@@ -32,7 +53,12 @@ public class EnemySpawner : MonoBehaviour
         for (int i = 0; i < numberOfEnemies; i++)
         {
             Vector3 spawnPos = GetRandomSpawnPosition();
-            Instantiate(enemyPrefab, spawnPos, Quaternion.identity);
+            GameObject enemy = Instantiate(enemyPrefab, spawnPos, Quaternion.identity);
+            EnemyAI enemyAI = enemy.GetComponent<EnemyAI>();
+            if (enemyAI != null)
+            {
+                enemyAI.SetupEnemy(level);
+            }
         }
     }
 
