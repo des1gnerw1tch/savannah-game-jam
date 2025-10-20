@@ -125,7 +125,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyAI
   minMoveSpeed: 5
-  maxMoveSpeed: 20
+  maxMoveSpeed: 60
   minRotationSpeed: 2
   maxRotationSpeed: 5
   minTurnCooldown: 1
