@@ -1328,10 +1328,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6050372494536873874, guid: 7c8c115c6aaf7486eb1a9161e34c8532, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -0.99
-      objectReference: {fileID: 0}
     - target: {fileID: 6942359150994634969, guid: 7c8c115c6aaf7486eb1a9161e34c8532, type: 3}
       propertyPath: m_Name
       value: RunnerPlayer

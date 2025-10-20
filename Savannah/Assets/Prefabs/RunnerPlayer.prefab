@@ -379,13 +379,17 @@ PrefabInstance:
       propertyPath: m_Name
       value: Alien
       objectReference: {fileID: 0}
+    - target: {fileID: 3679442029021288358, guid: e2edd2246f3934bdbb173bd86bc81215, type: 3}
+      propertyPath: m_ApplyRootMotion
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5334673505296131971, guid: e2edd2246f3934bdbb173bd86bc81215, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5334673505296131971, guid: e2edd2246f3934bdbb173bd86bc81215, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.85
+      value: -0.99
       objectReference: {fileID: 0}
     - target: {fileID: 5334673505296131971, guid: e2edd2246f3934bdbb173bd86bc81215, type: 3}
       propertyPath: m_LocalPosition.z
