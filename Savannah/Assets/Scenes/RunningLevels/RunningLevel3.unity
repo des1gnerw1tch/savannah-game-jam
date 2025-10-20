@@ -569,6 +569,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1170403802157311810, guid: 12aa1c20586cb47b78d0eb2aa8318d81, type: 3}
+      propertyPath: level
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 4347046572894257729, guid: 12aa1c20586cb47b78d0eb2aa8318d81, type: 3}
       propertyPath: m_Name
       value: EnemySpawner
@@ -1320,6 +1324,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8791711974313503434, guid: c2b917c45298e4e949d133ebcec7b230, type: 3}
+      propertyPath: maxNumberOfLogsToSpawn
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 8791711974313503434, guid: c2b917c45298e4e949d133ebcec7b230, type: 3}
+      propertyPath: maxNumberOfTreesToSpawn
+      value: 120
+      objectReference: {fileID: 0}
+    - target: {fileID: 8791711974313503434, guid: c2b917c45298e4e949d133ebcec7b230, type: 3}
+      propertyPath: minNumberOfTreesToSpawn
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1333,6 +1349,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2525495915035312181, guid: 7c8c115c6aaf7486eb1a9161e34c8532, type: 3}
+      propertyPath: chunkPrefab
+      value: 
+      objectReference: {fileID: 769240687}
     - target: {fileID: 2525495915035312181, guid: 7c8c115c6aaf7486eb1a9161e34c8532, type: 3}
       propertyPath: chunkObjects.Array.data[0].gameObject
       value: 
