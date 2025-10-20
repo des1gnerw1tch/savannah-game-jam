@@ -9,7 +9,8 @@ public class AnimalSpawner : MonoBehaviour
     public int maxTimeBetweenSpawns = 30;
     public GameObject animalPrefab;
     public List<GameObject> spawnPoints;
-    private int curNumAnimals;
+    private int numAnimalsSpawned;
+    public static int curNumAnimals = 0;
 
     void Start()
     {
@@ -19,7 +20,7 @@ public class AnimalSpawner : MonoBehaviour
             spawnPoints.Add(pos);
         }
 
-        curNumAnimals = 0;
+        numAnimalsSpawned = 0;
 
         StartCoroutine(SpawnAnimal());
     }
@@ -31,7 +32,7 @@ public class AnimalSpawner : MonoBehaviour
 
     IEnumerator SpawnAnimal()
     {
-        while(curNumAnimals < maxAnimals)
+        while(numAnimalsSpawned < maxAnimals)
         {
             yield return new WaitForSeconds(Random.Range(minTimeBetweenSpawns, maxTimeBetweenSpawns));
 
@@ -42,7 +43,23 @@ public class AnimalSpawner : MonoBehaviour
             Instantiate(animalPrefab, 
                 spawnPoint.transform.position, 
                 spawnPoint.transform.rotation);
+            numAnimalsSpawned++;
             curNumAnimals++;
         }
+
+        while (curNumAnimals > 0) 
+        {
+            yield return new WaitForSeconds(5f);
+        }
+
+        yield return new WaitForSeconds(5f);
+        Debug.Log("Level complete, good night");
+        //level complete
+        //add fade to black, scene change
+    }
+
+    public static void TigerDeath()
+    {
+        curNumAnimals--;
     }
 }

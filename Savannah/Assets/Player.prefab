@@ -5017,7 +5017,7 @@ GameObject:
   - component: {fileID: 1510534478483134558}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5248,6 +5248,7 @@ MonoBehaviour:
   playerCamera: {fileID: 7016997621623511283}
   muzzleFlash: {fileID: 21762470754010997}
   ammoText: {fileID: 0}
+  burnMarkPrefab: {fileID: 0}
   dmg: 1
   laserRange: 100
   fireRate: 0.2

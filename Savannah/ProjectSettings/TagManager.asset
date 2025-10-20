@@ -7,6 +7,9 @@ TagManager:
   - MiddlePos
   - ClosePos
   - FarPos
+  - Spawner
+  - target
+  - Terrain
   layers:
   - Default
   - TransparentFX

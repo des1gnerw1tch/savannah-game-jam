@@ -937,9 +937,10 @@ GameObject:
   - component: {fileID: 5883155896844355917}
   - component: {fileID: 2189647995300200256}
   - component: {fileID: 5994939509087709404}
+  - component: {fileID: -3619848830363490758}
   m_Layer: 0
   m_Name: Tiger_001
-  m_TagString: Untagged
+  m_TagString: target
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -959,6 +960,7 @@ Transform:
   m_Children:
   - {fileID: 3178936492765605813}
   - {fileID: 6876313854106080965}
+  - {fileID: 905386979213690241}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!143 &5883155896844355906
@@ -1064,14 +1066,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 80eaa71ae515b9c419aa9dfc44f916f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AnimalController
-  minMoveTime: 10
-  maxMoveTime: 20
+  minMoveTime: 5
+  maxMoveTime: 15
   targetPositionsMiddle: []
   targetPositionsClose: []
   player: {fileID: 0}
   personalMoveTime: 0
   distanceFromPlayer: 0
   x: 0
+  camera: {fileID: 0}
 --- !u!136 &5994939509087709404
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -1095,6 +1098,18 @@ CapsuleCollider:
   m_Height: 1
   m_Direction: 2
   m_Center: {x: 0, y: 0.875, z: 1}
+--- !u!114 &-3619848830363490758
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5883155896844355918}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d8c8a45d873e742f7af9a43ac688963c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ShootableTarget
 --- !u!1 &6083925854692512673
 GameObject:
   m_ObjectHideFlags: 0
@@ -1157,6 +1172,37 @@ Transform:
   m_Children:
   - {fileID: 6269405532505082904}
   m_Father: {fileID: 1041951376465766747}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &6784149460931349428
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 905386979213690241}
+  m_Layer: 0
+  m_Name: GameObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &905386979213690241
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6784149460931349428}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -1, z: -0, w: 0}
+  m_LocalPosition: {x: 0, y: 0.9, z: 1.2}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6552451252865160180}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &7118450985759423895
 GameObject:

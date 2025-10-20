@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class AnimalController : MonoBehaviour
 {
@@ -13,10 +14,13 @@ public class AnimalController : MonoBehaviour
     public int personalMoveTime;
     public int distanceFromPlayer;
     public bool x = false;
+    public GameObject camera;
 
     void Start()
     {
+        //Time.timeScale = 1;
         player = GameObject.FindWithTag("Player");
+        camera = GameObject.FindWithTag("MainCamera");
         gameObject.transform.LookAt(player.transform.position);
         GameObject[] middlePositions = GameObject.FindGameObjectsWithTag("MiddlePos");
         GameObject[] closePositions = GameObject.FindGameObjectsWithTag("ClosePos");
@@ -38,11 +42,22 @@ public class AnimalController : MonoBehaviour
     {
         if (x)
         {
-            gameObject.transform.LookAt(player.transform.position);
             Vector3 curPos = gameObject.transform.position;
-            gameObject.transform.position = Vector3.Lerp(curPos, player.transform.position, .02f);
-        }
+            Vector3 targetPos = player.transform.position;// - new Vector3(0f, .15f, 0f);
+            CameraController.LockCamera();
+            CameraController.LookAtTarget(gameObject, camera.transform);
 
+            gameObject.transform.position = Vector3.Lerp(curPos, targetPos, 4f * Time.deltaTime);
+
+            if (Mathf.Abs(gameObject.transform.position.x - player.transform.position.x) < 1.5f
+            && Mathf.Abs(gameObject.transform.position.z - player.transform.position.z) < 1.5f)
+            {
+                //game over logic
+                Debug.Log("You Died");
+                //Time.timeScale = 0;
+                //StartCoroutine(ReloadScene());
+            }
+        }
     }
 
     IEnumerator MoveAnimal()
@@ -79,8 +94,30 @@ public class AnimalController : MonoBehaviour
             else if( distanceFromPlayer == 1) 
             {
                 distanceFromPlayer--;
+                gameObject.transform.LookAt(player.transform.position);
                 x = true;
             }
         }
     }
+
+    //IEnumerator ReloadScene()
+    //{
+    //    yield return new WaitForSeconds(3);
+    //    SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    //}
+
+    //IEnumerator LookAtTiger()
+    //{
+        
+
+        
+    //}
+
+    //private void OnTriggerEnter(UnityEngine.Collider other)
+    //{
+    //    if(other.gameObject.tag == "Player")
+    //    {
+
+    //    }
+    //}
 }
