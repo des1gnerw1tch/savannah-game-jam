@@ -1,5 +1,5 @@
 using UnityEngine;
-using UnityEngine.AI;
+using UnityEngine.SceneManagement;
 
 public class EnemyAI : MonoBehaviour
 {
@@ -18,12 +18,11 @@ public class EnemyAI : MonoBehaviour
     private float turnCooldown;
 
     private Transform player;
-    private NavMeshAgent agent;
     private float turnTimer = 0f;
 
     void Start()
     {
-        // Randomize stats for this instance
+        // Randomize stats per enemy
         moveSpeed = Random.Range(minMoveSpeed, maxMoveSpeed);
         rotationSpeed = Random.Range(minRotationSpeed, maxRotationSpeed);
         turnCooldown = Random.Range(minTurnCooldown, maxTurnCooldown);
@@ -31,40 +30,38 @@ public class EnemyAI : MonoBehaviour
         // Find player
         GameObject playerObj = GameObject.FindGameObjectWithTag("Player");
         if (playerObj != null) player = playerObj.transform;
-
-        // Setup NavMeshAgent if present
-        agent = GetComponent<NavMeshAgent>();
-        if (agent != null)
-            agent.speed = moveSpeed;
     }
 
     void Update()
     {
         if (player == null) return;
 
-        // Move toward player
-        if (agent != null)
-        {
-            agent.SetDestination(player.position);
-        }
-        else
-        {
-            transform.position += (player.position - transform.position).normalized * moveSpeed * Time.deltaTime;
-        }
+        // Move forward in current direction
+        transform.position += transform.forward * moveSpeed * Time.deltaTime;
 
-        // Turn cooldown
+        // Check if it's time to rotate toward player
         turnTimer += Time.deltaTime;
         if (turnTimer >= turnCooldown)
         {
-            TurnTowardsPlayer();
+            Debug.Log("Yo");
+            RotateTowardPlayer();
             turnTimer = 0f;
         }
     }
 
-    void TurnTowardsPlayer()
+    void RotateTowardPlayer()
     {
         Vector3 direction = (player.position - transform.position).normalized;
-        Quaternion lookRotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(direction), rotationSpeed * Time.deltaTime);
-        transform.rotation = lookRotation;
+        transform.rotation = Quaternion.LookRotation(direction); // instant snap
+    }
+
+
+    void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            Debug.Log("Player caught! Game Over!");
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        }
     }
 }

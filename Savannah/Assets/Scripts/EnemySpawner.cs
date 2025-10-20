@@ -7,13 +7,13 @@ public class EnemySpawner : MonoBehaviour
     public int numberOfEnemies = 5;
     public float spawnRadius = 20f;       // Maximum distance from player
     public float minSpawnDistance = 10f;  // Minimum distance from player
-    public bool spawnOnRightSide = true;  // true = right, false = left
-    public float spawnDelay = 5f;         // Wait before spawning
+    public float spawnDelay = 5f;         // Delay before spawning
 
     private Transform player;
 
     void Start()
     {
+        // Find the player
         GameObject playerObj = GameObject.FindGameObjectWithTag("Player");
         if (playerObj != null) player = playerObj.transform;
         else
@@ -43,15 +43,10 @@ public class EnemySpawner : MonoBehaviour
 
         do
         {
-            // Random point in circle
+            // Pick a random point inside a circle
             Vector2 randomCircle = Random.insideUnitCircle * spawnRadius;
 
-            // Force spawn on one side
-            if (spawnOnRightSide)
-                randomCircle.x = Mathf.Abs(randomCircle.x);
-            else
-                randomCircle.x = -Mathf.Abs(randomCircle.x);
-
+            // Convert to 3D around player
             spawnPos = player.position + new Vector3(randomCircle.x, 0, randomCircle.y);
 
             attempts++;
