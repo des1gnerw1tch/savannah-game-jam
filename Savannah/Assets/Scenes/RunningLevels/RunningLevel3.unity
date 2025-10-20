@@ -1422,6 +1422,10 @@ PrefabInstance:
       propertyPath: distanceText
       value: 
       objectReference: {fileID: 1380388403}
+    - target: {fileID: 2686344436923410642, guid: 7c8c115c6aaf7486eb1a9161e34c8532, type: 3}
+      propertyPath: nextNightLevelToLoad
+      value: NightScene2
+      objectReference: {fileID: 0}
     - target: {fileID: 3281690922171370390, guid: 7c8c115c6aaf7486eb1a9161e34c8532, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0

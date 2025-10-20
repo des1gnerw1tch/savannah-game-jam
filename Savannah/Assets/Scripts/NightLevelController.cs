@@ -1,4 +1,5 @@
 using System.Collections;
+using JetBrains.Annotations;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using TMPro;
@@ -10,8 +11,9 @@ public class NightLevelController : MonoBehaviour
     //public TMP_Text deathText;
     //public static Image deathScreen;
     public Image blackScreen;
-    public static int level = 1;
-    
+    public int level = 1;
+    [SerializeField] private string nextDayLevel;
+    [SerializeField] private GameObject youWon;
     void Start()
     {
         //fade in from black
@@ -24,8 +26,10 @@ public class NightLevelController : MonoBehaviour
 
     public void LoadNextLevel()
     {
-        level++;
-        blackScreen.enabled = true;
+        if (nextDayLevel != "DoneWithGame")
+        {
+            blackScreen.enabled = true;
+        }
         StartCoroutine(NextLevel());
     }
 
@@ -33,7 +37,16 @@ public class NightLevelController : MonoBehaviour
     {
         yield return new WaitForSeconds(1);
         //fade to black
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        if (nextDayLevel == "DoneWithGame")
+        {
+            Debug.Log("Game is WON!");
+            youWon.SetActive(true);
+        }
+        else
+        {
+            SceneManager.LoadScene(nextDayLevel);
+        }
+        
     }
 
     IEnumerator RemoveBlackScreen()

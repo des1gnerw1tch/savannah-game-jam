@@ -15,6 +15,7 @@ public class MoveRunnerPlayer : MonoBehaviour
     [SerializeField] private TextMeshProUGUI speedText;
     private Vector3 startingRunningPosition;
 
+    [SerializeField] private string nextNightLevelToLoad;
     private void Start() => startingRunningPosition = this.transform.position;
     
     void Update()
@@ -66,7 +67,7 @@ public class MoveRunnerPlayer : MonoBehaviour
         distanceText.text = distance.ToString();
         if (distance > distanceNeededToEscape)
         {
-            Debug.Log("YOU WON! Scene change now. ");
+            SceneManager.LoadScene(nextNightLevelToLoad);
         }
         
     }
