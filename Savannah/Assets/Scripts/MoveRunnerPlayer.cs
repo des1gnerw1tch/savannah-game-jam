@@ -6,6 +6,7 @@ public class MoveRunnerPlayer : MonoBehaviour
     [SerializeField] private float speed;
     [SerializeField] private float maxSpeed;
     [SerializeField] private float speedIncrementWhenPressMouseButton;
+    [SerializeField] private float speedToResetAfterCollision;
 
     void Update()
     {
@@ -30,6 +31,7 @@ public class MoveRunnerPlayer : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         Debug.Log("Collision!");
+        speed = speedToResetAfterCollision;
     }
 
     private void ClampSpeed()
