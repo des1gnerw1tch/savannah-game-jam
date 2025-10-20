@@ -297,6 +297,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   speed: 30
+  maxSpeed: 70
+  speedIncrementWhenPressMouseButton: 2
 --- !u!114 &9020177385871881277
 MonoBehaviour:
   m_ObjectHideFlags: 0
