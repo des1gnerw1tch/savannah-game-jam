@@ -2,6 +2,7 @@ using System;
 using System.Collections.Specialized;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class MoveRunnerPlayer : MonoBehaviour
 {
@@ -43,7 +44,15 @@ public class MoveRunnerPlayer : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         Debug.Log("Collision!");
-        speed = speedToResetAfterCollision;
+        if (other.gameObject.tag == "RunnerEnemy")
+        {  
+            Debug.Log("Game over");
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name); // by name
+        }
+        else
+        {
+            speed = speedToResetAfterCollision;
+        }
     }
 
     private void ClampSpeed()
