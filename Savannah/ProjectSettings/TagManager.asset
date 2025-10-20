@@ -6,6 +6,7 @@ TagManager:
   tags:
   - MiddlePos
   - ClosePos
+  - target
   layers:
   - Default
   - TransparentFX
